@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
+
+    Animator ani;
     public float speed;
     float movement;
     #region Jumping
@@ -42,16 +44,28 @@ public class Player : MonoBehaviour
     void Start()
     {
        rb = GetComponent<Rigidbody2D>();
+
+       ani = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
 
     {
+        if(ani.GetCurrentAnimatorStateInfo(0).IsName("Crouch")){
+        Debug.Log("True");
+        }
+        
         boxPosition = transform.position + offset; 
         movement = Input.GetAxis("Horizontal");
         isGrounded = Physics2D.OverlapBox(boxPosition, boxSize, rotation, groundLayerMask);
         if(isGrounded == true){
+            if(Input.GetAxisRaw("Vertical")< 0){
+                ani.SetBool("Crouching", true);
+            }
+            else{
+                ani.SetBool("Crouching", false);
+            }
             ResetJumps();
         }
         if(Input.GetAxis("Vertical") < 0){
@@ -107,4 +121,5 @@ public class Player : MonoBehaviour
         Gizmos.color = debugColor;
         Gizmos.DrawWireCube(boxPosition, boxSize);
     }
+   
 }

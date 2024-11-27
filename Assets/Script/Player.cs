@@ -37,7 +37,12 @@ public class Player : MonoBehaviour
     const int maxAirJumps = 1;
 
     public float maxFallSpeed;
-    #endregion 
+    #endregion
+    #region Input Buffer
+    List<string> buffer = new List<string>();
+    float timer = 0;
+    public float coolDown;
+    #endregion
 
 
     // Start is called before the first frame update
@@ -101,8 +106,27 @@ public class Player : MonoBehaviour
         }
         else{
             Physics2D.IgnoreLayerCollision(playerLayer, semiSolidLayerMask, false);
-        }
 
+
+        }
+        //print(Input.inputString);
+        if(Input.inputString != "")
+        {
+            buffer.Add(Input.inputString);
+        }
+       
+        if(buffer.Count > 0)
+        {
+            timer += Time.deltaTime;
+            if(timer > coolDown)
+            {
+                //execute move
+                print(buffer.Count);
+                timer = 0;
+           
+                buffer.Clear();
+            }
+        }
     }
     void FixedUpdate()
     {

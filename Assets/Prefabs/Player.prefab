@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3733302149700589247}
   - component: {fileID: 8133857866137657471}
   - component: {fileID: 1546029927847610616}
+  - component: {fileID: 5667602162764673932}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -181,3 +182,24 @@ MonoBehaviour:
   debugColor: {r: 0, g: 1, b: 0.026485443, a: 1}
   offset: {x: 0, y: -0.58, z: 0}
   maxFallSpeed: 10
+--- !u!95 &5667602162764673932
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275379149110738831}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: deeefd5dae6ab4862942894b456d307d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
